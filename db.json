@@ -1,0 +1,34 @@
+{
+  "emails": [
+    {
+      "from": "uddibhardwaj08@gmail.com",
+      "to": "suman@gmail.com",
+      "message": "this is my message",
+      "isRead": false,
+      "id": 1
+    },
+    {
+      "from": "suman@gmail.com",
+      "to": "uddibhardwaj08@gmail.com",
+      "message": "this is my second message",
+      "isRead": true,
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "name": "Udit Sharma",
+      "photo": "http://res.cloudinary.com/dvuphar2o/image/upload/v1688753159/x9npwsbeexfv3ym6yehh.png",
+      "email": "uddibhardwaj08@gmail.com",
+      "password": "Deepak@123",
+      "id": 1
+    },
+    {
+      "name": "suman",
+      "photo": "http://res.cloudinary.com/dvuphar2o/image/upload/v1688753202/lrr5rvne4ym7mvcgeq3v.png",
+      "email": "suman@gmail.com",
+      "password": "Suman@123",
+      "id": 2
+    }
+  ]
+}
