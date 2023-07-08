@@ -32,6 +32,16 @@ const Sent = () => {
         console.log(err);
       });
   };
+  const deletemail = (id) => {
+    axios
+      .delete(`http://localhost:8080/emails/${id}`)
+      .then((res) => {
+        getData();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   if (!user) {
     return <Navigate to="/login" />;
   } else {
@@ -45,35 +55,49 @@ const Sent = () => {
                   <tbody>
                     {data
                       ? data.map((e) => (
-                          <Link to={`/mail/${e.id}`}>
-                            <tr
-                              onClick={() => {
-                                updateRead(e.id);
-                              }}
-                              key={e.id}
-                              style={{
-                                backgroundColor: e.isRead ? "white" : "",
-                                border: "2px solid white",
-                              }}
-                              class="border-b cursor-pointer bg-neutral-100 dark:border-neutral-500 "
-                            >
+                          <tr
+                            onClick={() => {
+                              updateRead(e.id);
+                            }}
+                            key={e.id}
+                            style={{
+                              backgroundColor: e.isRead ? "white" : "",
+                              border: "2px solid white",
+                            }}
+                            class="border-b cursor-pointer bg-neutral-100 dark:border-neutral-500 "
+                          >
+                            <Link to={`/mail/${e.id}`}>
                               <td
                                 style={{ width: "70px" }}
                                 class="whitespace-nowrap px-6 py-4 font-medium"
                               >
                                 {e.isRead ? "read" : "unread"}
                               </td>
+                            </Link>
+                            <Link to={`/mail/${e.id}`}>
                               <td
                                 style={{ width: "150px" }}
                                 class="whitespace-nowrap px-6 py-4"
                               >
                                 {e.from}
                               </td>
+                            </Link>
+                            <Link to={`/mail/${e.id}`}>
                               <td class="whitespace-nowrap px-6 py-4">
                                 {e.message}
                               </td>
-                            </tr>
-                          </Link>
+                            </Link>
+                            <td class="whitespace-nowrap px-6 py-4">
+                              <button
+                                onClick={() => {
+                                  deletemail(e.id);
+                                }}
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
                         ))
                       : ""}
                   </tbody>
