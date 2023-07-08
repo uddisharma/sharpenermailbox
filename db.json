@@ -4,7 +4,7 @@
       "from": "uddibhardwaj08@gmail.com",
       "to": "suman@gmail.com",
       "message": "this is my message",
-      "isRead": false,
+      "isRead": true,
       "id": 1
     },
     {
@@ -13,6 +13,13 @@
       "message": "this is my second message",
       "isRead": true,
       "id": 2
+    },
+    {
+      "from": "suman@gmail.com",
+      "to": "uddibhardwaj08@gmail.com",
+      "message": "this message from suman",
+      "isRead": false,
+      "id": 3
     }
   ],
   "users": [

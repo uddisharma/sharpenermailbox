@@ -28,7 +28,7 @@ const Register = () => {
         });
         if (user.length > 0) {
           localStorage.setItem("user", JSON.stringify(user));
-          navigate("/");
+          window.location.href = "/";
         }
       })
       .catch((err) => {

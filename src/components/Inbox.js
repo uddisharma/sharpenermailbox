@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import axios from "axios";
 const Inbox = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -30,29 +30,32 @@ const Inbox = () => {
                   <tbody>
                     {data
                       ? data.map((e) => (
-                          <tr
-                            key={e.id}
-                            style={{
-                              backgroundColor: e.isRead ? "white" : "",
-                            }}
-                            class="border-b cursor-pointer  bg-neutral-100 dark:border-neutral-500 "
-                          >
-                            <td
-                              style={{ width: "70px" }}
-                              class="whitespace-nowrap px-6 py-4 font-medium"
+                          <Link to={`/mail/${e.id}`}>
+                            <tr
+                              key={e.id}
+                              style={{
+                                backgroundColor: e.isRead ? "white" : "",
+                                border: "2px solid white",
+                              }}
+                              class="border-b w-[100%] cursor-pointer  bg-neutral-100 dark:border-neutral-500 "
                             >
-                              {e.isRead ? "read" : "unread"}
-                            </td>
-                            <td
-                              style={{ width: "150px" }}
-                              class="whitespace-nowrap px-6 py-4"
-                            >
-                              {e.from}
-                            </td>
-                            <td class="whitespace-nowrap px-6 py-4">
-                              {e.message}
-                            </td>
-                          </tr>
+                              <td
+                                style={{ width: "70px" }}
+                                class="whitespace-nowrap px-6 py-4 font-medium"
+                              >
+                                {e.isRead ? "read" : "unread"}
+                              </td>
+                              <td
+                                style={{ width: "150px" }}
+                                class="whitespace-nowrap px-6 py-4"
+                              >
+                                {e.from}
+                              </td>
+                              <td class="whitespace-nowrap px-6 py-4">
+                                {e.message}
+                              </td>
+                            </tr>
+                          </Link>
                         ))
                       : ""}
                   </tbody>
